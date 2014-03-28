@@ -1,0 +1,32 @@
+{
+  "name": "calvad_psql_to_couchdb",
+  "version": "0.0.1",
+  "description": "CalVAD copy detector metadata to CouchDB from PostgreSQL",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmarca/calvad_psql_to_couchdb"
+  },
+  "keywords": [
+    "CalVAD"
+  ],
+  "author": "James E. Marca",
+  "license": "GPL v2",
+  "bugs": {
+    "url": "https://github.com/jmarca/calvad_psql_to_couchdb/issues"
+  },
+  "homepage": "https://github.com/jmarca/calvad_psql_to_couchdb",
+  "dependencies": {
+    "async": "^0.4.0",
+    "config_okay": "0.0.2"
+  },
+  "devDependencies": {
+    "should": "^3.2.0-beta1"
+  }
+}
