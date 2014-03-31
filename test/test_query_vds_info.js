@@ -8,7 +8,7 @@ var path    = require('path')
 var rootdir = path.normalize(__dirname)
 
 var pg = require('pg')
-
+var _ = require('lodash')
 
 describe('get vds info from psql database',function(){
     it('should get data for vds detector',function(done){
@@ -40,9 +40,17 @@ describe('get vds info from psql database',function(){
                             should.not.exist(e)
                             should.exist(r)
                             r.should.have.property('vds_version_data')
-                            console.log(Object.keys(r.vds_version_data).length)
-                            // Object.keys(r.vds_version_data).should.have.lengthOf()
-                            r.components.should.have.lengthOf(4)
+                            var detectors = Object.keys(r.vds_version_data)
+                            var len = detectors.length
+                            len.should.eql(14606) // as of marc, 2014
+                            var compound_length = 0
+                            _.forEach(r.vds_version_data,function(v,k){
+                                _.forEach(v,function(metadata,year){
+                                    compound_length += metadata.length
+                                })
+                            })
+                            compound_length.should.eql(69468)
+
                             return done()
                         })
         return null
