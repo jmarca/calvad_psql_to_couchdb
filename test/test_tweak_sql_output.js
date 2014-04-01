@@ -1,6 +1,8 @@
 /*global require __dirname */
 var should = require('should')
 var query_vds = require('../lib/query_vds_info')
+var tweak = require('../lib/tweak_sql_output')
+
 var config_okay = require('config_okay')
 var async = require('async')
 
@@ -35,20 +37,22 @@ describe('get vds info from psql database',function(){
                                        ,query_vds(task,cb)
                                        )
                              return null
-                         }]
+                         }
+                        ,tweak]
                        ,function(e,r){
                             should.not.exist(e)
                             should.exist(r)
-                            r.should.have.property('vds_version_data')
-                            var detectors = Object.keys(r.vds_version_data)
-                            fs.writeFileSync('/tmp/test.json','utf8',JSON.stringify(r.vds_version_data[detectors[0]]))
-                            var len = detectors.length
-                            //len.should.eql(14606) // as of march, 2014
+                            r.should.have.property('docs')
+
+                            var len = r.docs.length
                             len.should.eql(17110) // as of april, 2014
-                            var compound_length = 0
-                            _.forEach(r.vds_version_data,function(v,k){
+                            var compound_length=0
+                            _.forEach(r.docs,function(v,k){
                                 _.forEach(v,function(metadata,year){
-                                    compound_length += metadata.length
+                                    if(year==='_id') return null
+                                    metadata.should.have.property('properties')
+                                    compound_length += metadata.properties.length
+                                    return null
                                 })
                             })
                             compound_length.should.eql(104444)
