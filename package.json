@@ -31,6 +31,6 @@
   },
   "devDependencies": {
     "should": "",
-    "superagent": "~0.17.0"
+    "couchdb_get_view": "git://github.com/jmarca/couchdb_get_views"
   }
 }
