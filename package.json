@@ -23,14 +23,14 @@
   },
   "homepage": "https://github.com/jmarca/calvad_psql_to_couchdb",
   "dependencies": {
-    "async": "~0.6.2",
+    "async": "",
     "config_okay": "",
     "pg": "",
-    "lodash": "~2.4.1",
+    "lodash": "",
     "couchdb_bulkdoc_appender": "git://github.com/jmarca/couchdb_bulkdoc_appender"
   },
   "devDependencies": {
     "should": "",
-    "superagent": "~0.17.0"
+    "superagent": ""
   }
 }
