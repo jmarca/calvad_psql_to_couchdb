@@ -25,12 +25,16 @@
   "dependencies": {
     "async": "",
     "config_okay": "",
-    "pg": "",
+    "couchdb_bulkdoc_appender": "git://github.com/jmarca/couchdb_bulkdoc_appender",
+    "d3-queue": "^2.0.3",
     "lodash": "",
-    "couchdb_bulkdoc_appender": "git://github.com/jmarca/couchdb_bulkdoc_appender"
+    "pg": ""
   },
   "devDependencies": {
-    "should": "",
-    "couchdb_get_view": "git://github.com/jmarca/couchdb_get_views"
+    "couchdb_get_views": "jmarca/couchdb_get_views",
+    "couchdb_put_doc": "github:jmarca/couchdb_put_doc",
+    "mocha": "^2.4.5",
+    "request": "^2.70.0",
+    "should": ""
   }
 }
