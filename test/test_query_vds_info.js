@@ -41,7 +41,7 @@ describe('get vds info from psql database',function(){
                             should.exist(r)
                             r.should.have.property('vds_version_data')
                             var detectors = Object.keys(r.vds_version_data)
-                            fs.writeFileSync('/tmp/test.json','utf8',JSON.stringify(r.vds_version_data[detectors[0]]))
+                           fs.writeFileSync('/tmp/test.json',JSON.stringify(r.vds_version_data[detectors[0]]),'utf8')
                             var len = detectors.length
                             //len.should.eql(14606) // as of march, 2014
                             len.should.eql(17110) // as of april, 2014
